@@ -14,16 +14,24 @@ public:
         }
 
         ListNode* crrA = headA;
-        while(crrA != nullptr){
-             ListNode* crrB = headB;
-            while(crrB != nullptr){
-                if(crrA == crrB){
-                    return crrA;
-                }
-                crrB = crrB->next;
-            }
+        ListNode* crrB = headB;
+
+        while(crrA != nullptr && crrB != nullptr && crrA != crrB){
             crrA = crrA->next;
+            crrB = crrB->next;
+
+            if(crrA == crrB){
+                return crrA;
+            }
+
+            if(crrA == nullptr){
+                crrA = headB;
+            }
+
+            if(crrB == nullptr){
+                crrB = headA;
+            }
         }
-    return nullptr;
+        return crrA;
     }
 };
