@@ -23,22 +23,16 @@ public:
             isDublicate = false;
             while(crr->next != nullptr && crr->val == crr->next->val){
                 isDublicate = true;
-                ListNode* toDelete = crr->next;
                 crr->next = crr->next->next;
-                delete toDelete;
             }
 
             if(isDublicate){
                 if(prev == nullptr){
-                    ListNode* toDelete = crr;
                     head = head->next;
                     crr = crr->next;
-                    delete toDelete;
                 }else{
-                    ListNode* toDelete = crr;
                     prev->next = crr->next;
                     crr = crr->next;
-                    delete toDelete;
                 }
             }else{
                 prev = crr;
