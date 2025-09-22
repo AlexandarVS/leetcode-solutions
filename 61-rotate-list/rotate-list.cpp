@@ -13,7 +13,6 @@ public:
    ListNode* rotateRight(ListNode* head, int k) {
     if (!head || !head->next || k == 0) return head;
 
-    // Compute length
     int len = 1;
     ListNode* temp = head;
     while (temp->next) {
