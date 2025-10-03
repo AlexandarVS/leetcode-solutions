@@ -24,14 +24,12 @@ class Solution {
             return head;
         }
 
-        ListNode crr = head.next;
-        ListNode prev = head;
+        ListNode crr = head;
 
-        while(crr != null){
-            int newNodeVal = GCD(prev.val, crr.val);
-            prev.next = new ListNode(newNodeVal, crr);
-            prev = crr;
-            crr = crr.next;
+        while(crr != null && crr.next != null){
+            int newNodeVal = GCD(crr.val, crr.next.val);
+            crr.next = new ListNode(newNodeVal, crr.next);
+            crr = crr.next.next;
         }
 
         return head;
