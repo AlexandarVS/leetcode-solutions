@@ -22,7 +22,7 @@ class Solution {
         if(root.left == null && root.right == null){
             path+= Integer.toString(root.val);
             result.add(path);
-            path = "";
+            return;
         }
 
         path+= Integer.toString(root.val) + "->";
